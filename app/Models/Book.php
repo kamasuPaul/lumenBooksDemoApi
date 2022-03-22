@@ -4,7 +4,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model{
+    protected $with = ['authors'];
     protected $fillable = [
         'name', 'publisher', 'isbn', 'country', 'release_date', 'number_of_pages', 'url', 'media_type'
     ];
+    //authors
+    public function authors(){
+        return $this->hasMany('App\Models\Author');
+    }
 }
