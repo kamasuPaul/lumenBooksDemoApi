@@ -1,9 +1,11 @@
 <?php
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model{
+    use HasFactory;
     protected $with = ['authors'];
     protected $fillable = [
         'name', 'publisher', 'isbn', 'country', 'release_date', 'number_of_pages', 'url', 'media_type'
