@@ -18,4 +18,7 @@ class Book extends Model{
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+    public function characters(){
+        return $this->belongsToMany(Character::class);
+    }
 }
