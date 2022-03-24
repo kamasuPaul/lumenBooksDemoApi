@@ -1,12 +1,1657 @@
-openapi: '3.0.2'
+openapi: 3.0.2
 info:
   title: Books demo api
   version: '1.0'
 servers:
-  - url: https://api.server.test/v1
+  - url: 'https://api.server.test/v1'
 paths:
-  /test:
+  /books:
     get:
+      summary: List books
+      tags:
+        - books
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                x-examples:
+                  example-1:
+                    data:
+                      - id: 12
+                        name: A Knight of the Seven Kingdoms
+                        publisher: Bantam Books
+                        isbn: 978-0345533487
+                        country: United States
+                        release_date: '2015-10-06'
+                        number_of_pages: 368
+                        url: 'https://anapioficeandfire.com/api/books/12'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 14
+                            name: George R. R. Martin
+                            book_id: 12
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 11
+                        name: The World of Ice and Fire
+                        publisher: Bantam Books
+                        isbn: 978-0553805444
+                        country: United States
+                        release_date: '2014-10-28'
+                        number_of_pages: 336
+                        url: 'https://anapioficeandfire.com/api/books/11'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 11
+                            name: Elio Garcia
+                            book_id: 11
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                          - id: 12
+                            name: Linda Antonsson
+                            book_id: 11
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                          - id: 13
+                            name: George R. R. Martin
+                            book_id: 11
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 10
+                        name: The Rogue Prince
+                        publisher: Bantam Books
+                        isbn: 978-0345537263
+                        country: United States
+                        release_date: '2014-06-17'
+                        number_of_pages: 832
+                        url: 'https://anapioficeandfire.com/api/books/10'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 10
+                            name: George R. R. Martin
+                            book_id: 10
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 9
+                        name: The Princess and the Queen
+                        publisher: Tor Books
+                        isbn: 978-0765332066
+                        country: United States
+                        release_date: '2013-12-03'
+                        number_of_pages: 784
+                        url: 'https://anapioficeandfire.com/api/books/9'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 9
+                            name: George R. R. Martin
+                            book_id: 9
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 8
+                        name: A Dance with Dragons
+                        publisher: Bantam Books
+                        isbn: 978-0553801477
+                        country: United States
+                        release_date: '2011-07-12'
+                        number_of_pages: 1040
+                        url: 'https://anapioficeandfire.com/api/books/8'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 8
+                            name: George R. R. Martin
+                            book_id: 8
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 7
+                        name: The Mystery Knight
+                        publisher: Tor Fantasy
+                        isbn: 978-0765360267
+                        country: United States
+                        release_date: '2011-03-29'
+                        number_of_pages: 416
+                        url: 'https://anapioficeandfire.com/api/books/7'
+                        media_type: Paperback
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 7
+                            name: George R. R. Martin
+                            book_id: 7
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 6
+                        name: The Sworn Sword
+                        publisher: Marvel
+                        isbn: 978-0785126508
+                        country: United States
+                        release_date: '2008-06-18'
+                        number_of_pages: 152
+                        url: 'https://anapioficeandfire.com/api/books/6'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 6
+                            name: George R. R. Martin
+                            book_id: 6
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 5
+                        name: A Feast for Crows
+                        publisher: Bantam Books
+                        isbn: 978-0553801507
+                        country: United Status
+                        release_date: '2005-11-08'
+                        number_of_pages: 784
+                        url: 'https://anapioficeandfire.com/api/books/5'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 5
+                            name: George R. R. Martin
+                            book_id: 5
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 4
+                        name: The Hedge Knight
+                        publisher: Dabel Brothers Publishing
+                        isbn: 978-0976401100
+                        country: United States
+                        release_date: '2005-03-09'
+                        number_of_pages: 164
+                        url: 'https://anapioficeandfire.com/api/books/4'
+                        media_type: GraphicNovel
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 4
+                            name: George R. R. Martin
+                            book_id: 4
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 3
+                        name: A Storm of Swords
+                        publisher: Bantam Books
+                        isbn: 978-0553106633
+                        country: United States
+                        release_date: '2000-10-31'
+                        number_of_pages: 992
+                        url: 'https://anapioficeandfire.com/api/books/3'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 3
+                            name: George R. R. Martin
+                            book_id: 3
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                    meta:
+                      from: 1
+                      to: 10
+                      per_page: 10
+                      current_page: 1
+                      last_page: 2
+                      total: 12
+                properties:
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        name:
+                          type: string
+                          minLength: 1
+                        publisher:
+                          type: string
+                          minLength: 1
+                        isbn:
+                          type: string
+                          minLength: 1
+                        country:
+                          type: string
+                          minLength: 1
+                        release_date:
+                          type: string
+                          minLength: 1
+                        number_of_pages:
+                          type: number
+                        url:
+                          type: string
+                          minLength: 1
+                        media_type:
+                          type: string
+                          minLength: 1
+                        created_at:
+                          type: string
+                          minLength: 1
+                        updated_at:
+                          type: string
+                          minLength: 1
+                        comments_count:
+                          type: number
+                        authors:
+                          type: array
+                          uniqueItems: true
+                          minItems: 1
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: number
+                              name:
+                                type: string
+                                minLength: 1
+                              book_id:
+                                type: number
+                              created_at:
+                                type: string
+                                minLength: 1
+                              updated_at:
+                                type: string
+                                minLength: 1
+                            required:
+                              - id
+                              - name
+                              - book_id
+                              - created_at
+                              - updated_at
+                  meta:
+                    type: object
+                    required:
+                      - from
+                      - to
+                      - per_page
+                      - current_page
+                      - last_page
+                      - total
+                    properties:
+                      from:
+                        type: number
+                      to:
+                        type: number
+                      per_page:
+                        type: number
+                      current_page:
+                        type: number
+                      last_page:
+                        type: number
+                      total:
+                        type: number
+                required:
+                  - meta
+              examples:
+                example:
+                  value:
+                    data:
+                      - id: 12
+                        name: A Knight of the Seven Kingdoms
+                        publisher: Bantam Books
+                        isbn: 978-0345533487
+                        country: United States
+                        release_date: '2015-10-06'
+                        number_of_pages: 368
+                        url: 'https://anapioficeandfire.com/api/books/12'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 14
+                            name: George R. R. Martin
+                            book_id: 12
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 11
+                        name: The World of Ice and Fire
+                        publisher: Bantam Books
+                        isbn: 978-0553805444
+                        country: United States
+                        release_date: '2014-10-28'
+                        number_of_pages: 336
+                        url: 'https://anapioficeandfire.com/api/books/11'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 11
+                            name: Elio Garcia
+                            book_id: 11
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                          - id: 12
+                            name: Linda Antonsson
+                            book_id: 11
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                          - id: 13
+                            name: George R. R. Martin
+                            book_id: 11
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 10
+                        name: The Rogue Prince
+                        publisher: Bantam Books
+                        isbn: 978-0345537263
+                        country: United States
+                        release_date: '2014-06-17'
+                        number_of_pages: 832
+                        url: 'https://anapioficeandfire.com/api/books/10'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 10
+                            name: George R. R. Martin
+                            book_id: 10
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 9
+                        name: The Princess and the Queen
+                        publisher: Tor Books
+                        isbn: 978-0765332066
+                        country: United States
+                        release_date: '2013-12-03'
+                        number_of_pages: 784
+                        url: 'https://anapioficeandfire.com/api/books/9'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 9
+                            name: George R. R. Martin
+                            book_id: 9
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 8
+                        name: A Dance with Dragons
+                        publisher: Bantam Books
+                        isbn: 978-0553801477
+                        country: United States
+                        release_date: '2011-07-12'
+                        number_of_pages: 1040
+                        url: 'https://anapioficeandfire.com/api/books/8'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 8
+                            name: George R. R. Martin
+                            book_id: 8
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 7
+                        name: The Mystery Knight
+                        publisher: Tor Fantasy
+                        isbn: 978-0765360267
+                        country: United States
+                        release_date: '2011-03-29'
+                        number_of_pages: 416
+                        url: 'https://anapioficeandfire.com/api/books/7'
+                        media_type: Paperback
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 7
+                            name: George R. R. Martin
+                            book_id: 7
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 6
+                        name: The Sworn Sword
+                        publisher: Marvel
+                        isbn: 978-0785126508
+                        country: United States
+                        release_date: '2008-06-18'
+                        number_of_pages: 152
+                        url: 'https://anapioficeandfire.com/api/books/6'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 6
+                            name: George R. R. Martin
+                            book_id: 6
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 5
+                        name: A Feast for Crows
+                        publisher: Bantam Books
+                        isbn: 978-0553801507
+                        country: United Status
+                        release_date: '2005-11-08'
+                        number_of_pages: 784
+                        url: 'https://anapioficeandfire.com/api/books/5'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 5
+                            name: George R. R. Martin
+                            book_id: 5
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 4
+                        name: The Hedge Knight
+                        publisher: Dabel Brothers Publishing
+                        isbn: 978-0976401100
+                        country: United States
+                        release_date: '2005-03-09'
+                        number_of_pages: 164
+                        url: 'https://anapioficeandfire.com/api/books/4'
+                        media_type: GraphicNovel
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 4
+                            name: George R. R. Martin
+                            book_id: 4
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                      - id: 3
+                        name: A Storm of Swords
+                        publisher: Bantam Books
+                        isbn: 978-0553106633
+                        country: United States
+                        release_date: '2000-10-31'
+                        number_of_pages: 992
+                        url: 'https://anapioficeandfire.com/api/books/3'
+                        media_type: Hardcover
+                        created_at: '2022-03-24T10:51:00.000000Z'
+                        updated_at: '2022-03-24T10:51:00.000000Z'
+                        comments_count: 0
+                        authors:
+                          - id: 3
+                            name: George R. R. Martin
+                            book_id: 3
+                            created_at: '2022-03-24T10:51:00.000000Z'
+                            updated_at: '2022-03-24T10:51:00.000000Z'
+                    meta:
+                      from: 1
+                      to: 10
+                      per_page: 10
+                      current_page: 1
+                      last_page: 2
+                      total: 12
+      operationId: get-books
+      description: List available books. Returns a list of books sorted by release date
+  '/books/{bookId}/comments':
+    parameters:
+      - schema:
+          type: string
+        name: bookId
+        in: path
+        required: true
+        description: Id of the book on which to comment
+    post:
+      summary: Add a comment to a book
+      tags: []
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  body:
+                    type: string
+                    minLength: 1
+                  book_id:
+                    type: number
+                  ip_address:
+                    type: string
+                    minLength: 1
+                  updated_at:
+                    type: string
+                    minLength: 1
+                  created_at:
+                    type: string
+                    minLength: 1
+                  id:
+                    type: number
+                required:
+                  - body
+                  - book_id
+                  - ip_address
+                  - updated_at
+                  - created_at
+                  - id
+                x-examples:
+                  example-1:
+                    body: This is a test comment
+                    book_id: 1
+                    ip_address: '::1'
+                    updated_at: '2022-03-24T11:03:53.000000Z'
+                    created_at: '2022-03-24T11:03:53.000000Z'
+                    id: 1
+      operationId: post-books-bookId-comments
+      description: Comment on a book
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+                  description: Comment text
+                  minLength: 2
+                  maxLength: 500
+              required:
+                - body
+    get:
+      summary: List comments on a book
+      tags:
+        - comments
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - id
+                        - body
+                        - ip_address
+                        - book_id
+                        - created_at
+                        - updated_at
+                      properties:
+                        id:
+                          type: number
+                        body:
+                          type: string
+                          minLength: 1
+                        ip_address:
+                          type: string
+                          minLength: 1
+                        book_id:
+                          type: number
+                        created_at:
+                          type: string
+                          minLength: 1
+                        updated_at:
+                          type: string
+                          minLength: 1
+                  meta:
+                    type: object
+                    properties:
+                      from:
+                        type: number
+                      to:
+                        type: number
+                      per_page:
+                        type: number
+                      current_page:
+                        type: number
+                      last_page:
+                        type: number
+                      total:
+                        type: number
+                    required:
+                      - from
+                      - to
+                      - per_page
+                      - current_page
+                      - last_page
+                      - total
+                required:
+                  - data
+                  - meta
+                x-examples:
+                  example-1:
+                    data:
+                      - id: 1
+                        body: This is a test comment
+                        ip_address: '::1'
+                        book_id: 1
+                        created_at: '2022-03-24T11:03:53.000000Z'
+                        updated_at: '2022-03-24T11:03:53.000000Z'
+                    meta:
+                      from: 1
+                      to: 1
+                      per_page: 10
+                      current_page: 1
+                      last_page: 1
+                      total: 1
+              examples:
+                example:
+                  value:
+                    data:
+                      - id: 1
+                        body: This is a test comment
+                        ip_address: '::1'
+                        book_id: 1
+                        created_at: '2022-03-24T11:03:53.000000Z'
+                        updated_at: '2022-03-24T11:03:53.000000Z'
+                    meta:
+                      from: 1
+                      to: 1
+                      per_page: 10
+                      current_page: 1
+                      last_page: 1
+                      total: 1
+      operationId: get-books-bookId-comments
+      description: List comments on abook. They are returned in  reverse chronological order
+  '/book/{bookId}/characters/{sort}/{filter}/{per_page}/{page}':
+    parameters:
+      - schema:
+          type: string
+        name: bookId
+        in: path
+        required: true
+        description: Id of the book containing characters
+      - schema:
+          type: string
+          enum:
+            - age
+            - gender
+          example: sort=gender
+        name: sort
+        in: path
+        description: 'Sort the characters returned. U can sort in ascending or descending order. Example: sorting ascending: `sort=gender`, to sort in descending add `-` before the value ie. `sort=-gender`, '
+      - schema:
+          type: string
+          example: 'filter[gender]=Female'
+          enum:
+            - gender
+        name: filter
+        in: path
+        description: Filters results.
+      - schema:
+          type: string
+          example: per_page=10
+          maxLength: 50
+          minLength: 1
+        name: per_page
+        in: path
+        description: Results returned per page
+      - schema:
+          type: string
+          example: page=10
+        name: page
+        in: path
+        description: The page to return
+    get:
+      summary: List characters in a book
+      tags:
+        - characters
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - id
+                        - name
+                        - gender
+                        - culture
+                        - url
+                        - created_at
+                        - updated_at
+                      properties:
+                        id:
+                          type: number
+                        name:
+                          type: string
+                          minLength: 1
+                        gender:
+                          type: string
+                          minLength: 1
+                        culture:
+                          type: string
+                        aliases:
+                          type: array
+                          items:
+                            required: []
+                            properties: {}
+                        url:
+                          type: string
+                          minLength: 1
+                        born: {}
+                        died: {}
+                        created_at:
+                          type: string
+                          minLength: 1
+                        updated_at:
+                          type: string
+                          minLength: 1
+                        age:
+                          type: object
+                          properties:
+                            years:
+                              type: number
+                            months:
+                              type: number
+                          required:
+                            - years
+                            - months
+                        pivot:
+                          type: object
+                          properties:
+                            book_id:
+                              type: number
+                            character_id:
+                              type: number
+                          required:
+                            - book_id
+                            - character_id
+                  meta:
+                    type: object
+                    properties:
+                      total_age:
+                        type: number
+                      from:
+                        type: number
+                      to:
+                        type: number
+                      per_page:
+                        type: number
+                      current_page:
+                        type: number
+                      last_page:
+                        type: number
+                      total:
+                        type: number
+                    required:
+                      - total_age
+                      - from
+                      - to
+                      - per_page
+                      - current_page
+                      - last_page
+                      - total
+                required:
+                  - data
+                  - meta
+                x-examples:
+                  example-1:
+                    data:
+                      - id: 2110
+                        name: Willum
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2114'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2110
+                      - id: 2115
+                        name: Wyl
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2119'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2115
+                      - id: 2117
+                        name: Wylla
+                        gender: Female
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2121'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2117
+                      - id: 2064
+                        name: Varly
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2068'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2064
+                      - id: 2065
+                        name: Varys
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - The Spider
+                          - The Eunuch
+                          - Rugen
+                          - Varys of Lys
+                        url: 'https://anapioficeandfire.com/api/characters/2069'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2065
+                      - id: 2067
+                        name: Visenya Targaryen
+                        gender: Female
+                        culture: Valyrian
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2071'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2067
+                      - id: 2069
+                        name: Vyman
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2073'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2069
+                      - id: 2072
+                        name: Wallen
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2076'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2072
+                      - id: 2085
+                        name: Wayn
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2089'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2085
+                      - id: 2055
+                        name: Urron Greyiron
+                        gender: Male
+                        culture: Ironborn
+                        aliases:
+                          - Urron Redhand
+                        url: 'https://anapioficeandfire.com/api/characters/2059'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:27.000000Z'
+                        updated_at: '2022-03-24T10:52:27.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2055
+                    meta:
+                      total_age: 0
+                      from: 1
+                      to: 10
+                      per_page: 10
+                      current_page: 1
+                      last_page: 44
+                      total: 434
+              examples:
+                example:
+                  value:
+                    data:
+                      - id: 2110
+                        name: Willum
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2114'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2110
+                      - id: 2115
+                        name: Wyl
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2119'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2115
+                      - id: 2117
+                        name: Wylla
+                        gender: Female
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2121'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2117
+                      - id: 2064
+                        name: Varly
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2068'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2064
+                      - id: 2065
+                        name: Varys
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - The Spider
+                          - The Eunuch
+                          - Rugen
+                          - Varys of Lys
+                        url: 'https://anapioficeandfire.com/api/characters/2069'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2065
+                      - id: 2067
+                        name: Visenya Targaryen
+                        gender: Female
+                        culture: Valyrian
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2071'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2067
+                      - id: 2069
+                        name: Vyman
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2073'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2069
+                      - id: 2072
+                        name: Wallen
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2076'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2072
+                      - id: 2085
+                        name: Wayn
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2089'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2085
+                      - id: 2055
+                        name: Urron Greyiron
+                        gender: Male
+                        culture: Ironborn
+                        aliases:
+                          - Urron Redhand
+                        url: 'https://anapioficeandfire.com/api/characters/2059'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:27.000000Z'
+                        updated_at: '2022-03-24T10:52:27.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2055
+                    meta:
+                      total_age: 0
+                      from: 1
+                      to: 10
+                      per_page: 10
+                      current_page: 1
+                      last_page: 44
+                      total: 434
+        '':
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - id
+                        - name
+                        - gender
+                        - culture
+                        - url
+                        - created_at
+                        - updated_at
+                      properties:
+                        id:
+                          type: number
+                        name:
+                          type: string
+                          minLength: 1
+                        gender:
+                          type: string
+                          minLength: 1
+                        culture:
+                          type: string
+                        aliases:
+                          type: array
+                          items:
+                            required: []
+                            properties: {}
+                        url:
+                          type: string
+                          minLength: 1
+                        born: {}
+                        died: {}
+                        created_at:
+                          type: string
+                          minLength: 1
+                        updated_at:
+                          type: string
+                          minLength: 1
+                        age:
+                          type: object
+                          properties:
+                            years:
+                              type: number
+                            months:
+                              type: number
+                          required:
+                            - years
+                            - months
+                        pivot:
+                          type: object
+                          properties:
+                            book_id:
+                              type: number
+                            character_id:
+                              type: number
+                          required:
+                            - book_id
+                            - character_id
+                  meta:
+                    type: object
+                    properties:
+                      total_age:
+                        type: number
+                      from:
+                        type: number
+                      to:
+                        type: number
+                      per_page:
+                        type: number
+                      current_page:
+                        type: number
+                      last_page:
+                        type: number
+                      total:
+                        type: number
+                    required:
+                      - total_age
+                      - from
+                      - to
+                      - per_page
+                      - current_page
+                      - last_page
+                      - total
+                required:
+                  - data
+                  - meta
+                x-examples:
+                  example-1:
+                    data:
+                      - id: 2110
+                        name: Willum
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2114'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2110
+                      - id: 2115
+                        name: Wyl
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2119'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2115
+                      - id: 2117
+                        name: Wylla
+                        gender: Female
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2121'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2117
+                      - id: 2064
+                        name: Varly
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2068'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2064
+                      - id: 2065
+                        name: Varys
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - The Spider
+                          - The Eunuch
+                          - Rugen
+                          - Varys of Lys
+                        url: 'https://anapioficeandfire.com/api/characters/2069'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2065
+                      - id: 2067
+                        name: Visenya Targaryen
+                        gender: Female
+                        culture: Valyrian
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2071'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2067
+                      - id: 2069
+                        name: Vyman
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2073'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2069
+                      - id: 2072
+                        name: Wallen
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2076'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2072
+                      - id: 2085
+                        name: Wayn
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2089'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2085
+                      - id: 2055
+                        name: Urron Greyiron
+                        gender: Male
+                        culture: Ironborn
+                        aliases:
+                          - Urron Redhand
+                        url: 'https://anapioficeandfire.com/api/characters/2059'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:27.000000Z'
+                        updated_at: '2022-03-24T10:52:27.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2055
+                    meta:
+                      total_age: 0
+                      from: 1
+                      to: 10
+                      per_page: 10
+                      current_page: 1
+                      last_page: 44
+                      total: 434
+              examples:
+                example:
+                  value:
+                    data:
+                      - id: 2110
+                        name: Willum
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2114'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2110
+                      - id: 2115
+                        name: Wyl
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2119'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2115
+                      - id: 2117
+                        name: Wylla
+                        gender: Female
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2121'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:29.000000Z'
+                        updated_at: '2022-03-24T10:52:29.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2117
+                      - id: 2064
+                        name: Varly
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2068'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2064
+                      - id: 2065
+                        name: Varys
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - The Spider
+                          - The Eunuch
+                          - Rugen
+                          - Varys of Lys
+                        url: 'https://anapioficeandfire.com/api/characters/2069'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2065
+                      - id: 2067
+                        name: Visenya Targaryen
+                        gender: Female
+                        culture: Valyrian
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2071'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2067
+                      - id: 2069
+                        name: Vyman
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2073'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2069
+                      - id: 2072
+                        name: Wallen
+                        gender: Male
+                        culture: ''
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2076'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2072
+                      - id: 2085
+                        name: Wayn
+                        gender: Male
+                        culture: Northmen
+                        aliases:
+                          - ''
+                        url: 'https://anapioficeandfire.com/api/characters/2089'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:28.000000Z'
+                        updated_at: '2022-03-24T10:52:28.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2085
+                      - id: 2055
+                        name: Urron Greyiron
+                        gender: Male
+                        culture: Ironborn
+                        aliases:
+                          - Urron Redhand
+                        url: 'https://anapioficeandfire.com/api/characters/2059'
+                        born: null
+                        died: null
+                        created_at: '2022-03-24T10:52:27.000000Z'
+                        updated_at: '2022-03-24T10:52:27.000000Z'
+                        age:
+                          years: 0
+                          months: 0
+                        pivot:
+                          book_id: 1
+                          character_id: 2055
+                    meta:
+                      total_age: 0
+                      from: 1
+                      to: 10
+                      per_page: 10
+                      current_page: 1
+                      last_page: 44
+                      total: 434
+      operationId: get-book-bookId-characters
+      description: 'List characters in a book. '
