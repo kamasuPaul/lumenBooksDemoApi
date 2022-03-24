@@ -522,7 +522,8 @@ paths:
         description: Id of the book on which to comment
     post:
       summary: Add a comment to a book
-      tags: []
+      tags:
+        - comments
       responses:
         '201':
           description: Created
