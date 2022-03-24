@@ -1,6 +1,6 @@
 FROM php:8.0-apache
 #install system depencies
-RUN apt-get update && apt-get install -y git curl zip unzip
+RUN apt-get update && apt-get install -y git curl zip unzip libpq-dev
 # install php extensions
 RUN docker-php-ext-install mysqli pdo pdo_mysql bcmath
 # install php extensions for postgres
