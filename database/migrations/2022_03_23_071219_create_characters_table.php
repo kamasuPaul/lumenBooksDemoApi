@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('gender')->nullable();
+            $table->enum('gender',['Male','Female'])->nullable();
             $table->string('culture')->nullable();
             $table->json('aliases')->nullable();
             $table->string('url');

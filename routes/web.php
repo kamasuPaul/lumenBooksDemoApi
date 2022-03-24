@@ -24,5 +24,9 @@ $router->group(['prefix' => 'books'], function () use ($router) {
     // $router->post('/', 'BooksController@store');
     $router->post('/{id}/comments', 'CommentController@store');
     $router->get('/{id}/comments', 'CommentController@index');
+
+    $router->group(['prefix' => '{id}/characters'], function () use ($router) {
+        $router->get('/', 'CharacterController@index');
+    });
     // $router->delete('/{id}', 'BooksController@destroy');
 });
