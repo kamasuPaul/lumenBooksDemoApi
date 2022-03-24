@@ -3,6 +3,7 @@
 namespace Tests;
 
 use App\Models\Book;
+use App\Models\Comment;
 use Laravel\Lumen\Testing\DatabaseMigrations;
 use Laravel\Lumen\Testing\DatabaseTransactions;
 
@@ -19,13 +20,35 @@ class BooksControllerTest extends TestCase
     {
         $this->get('/books')
             ->seeJsonStructure([
-                '*' => [
-                    'id',
-                    'name',
-                    'authors',
-                    'created_at',
-                    'updated_at'
+                'data' => [
+                    '*' => [
+                        'id',
+                        'name',
+                        'authors',
+                        'created_at',
+                        'updated_at',
+                        'comments_count',
+                    ]
+                ],
+                'meta' => [
+                    'total',
+                    'from',
+                    'to',
+                    'per_page',
+                    'current_page',
+                    'last_page'
                 ]
+            ]);
+    }
+    //function to test index returns books with comments count attached to them
+    public function test_index_should_return_books_with_comments_count()
+    {
+        $book = Book::factory()->create();
+        $book->comments()->save(Comment::factory()->make());
+        $this->get('/books')
+            ->seeJson([
+                'id' => $book->id,
+                'comments_count' => 1
             ]);
     }
     //test books are returned sorted by release_date from earliest to newest

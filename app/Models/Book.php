@@ -10,6 +10,9 @@ class Book extends Model{
     protected $fillable = [
         'name', 'publisher', 'isbn', 'country', 'release_date', 'number_of_pages', 'url', 'media_type'
     ];
+    protected $appends = [
+        'comments_count'
+    ];
     //authors
     public function authors(){
         return $this->hasMany('App\Models\Author');
@@ -20,5 +23,9 @@ class Book extends Model{
     }
     public function characters(){
         return $this->belongsToMany(Character::class);
+    }
+    //comments count
+    public function getCommentsCountAttribute(){
+        return $this->comments()->count();
     }
 }
