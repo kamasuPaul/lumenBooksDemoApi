@@ -61,7 +61,7 @@ class BooksControllerTest extends TestCase
 
         $this->get('/books');
         //compare release_date of book1 and book2
-        $data = json_decode($this->response->getContent(), true);
+        $data = json_decode($this->response->getContent(), true)['data'];
         $this->assertEquals($data[0]['release_date'], '2017-02-01');
     }
 }

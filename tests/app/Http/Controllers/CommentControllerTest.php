@@ -27,7 +27,7 @@ class CommentControllerTest extends TestCase
         ]);
         //get comments from api
         $response = $this->get("books/{$book->id}/comments");
-        $resultComments = json_decode($this->response->getContent(), true);
+        $resultComments = json_decode($this->response->getContent(), true)['data'];
         //check that comments are in reverse chronological order
         $this->assertEquals($resultComments[0]['id'], $comments[2]['id']);
         $this->assertEquals($resultComments[1]['id'], $comments[1]['id']);
@@ -40,11 +40,22 @@ class CommentControllerTest extends TestCase
         ]);
         $this->get("books/{$book->id}/comments")
             ->seeJsonStructure([
-                '*' => [
-                    'id',
-                    'body',
-                    'created_at',
-                    'updated_at'
+                'data' => [
+                    '*' => [
+                        'id',
+                        'body',
+                        'ip_address',
+                        'created_at',
+                        'updated_at'
+                    ]
+                ],
+                'meta' => [
+                    'total',
+                    'from',
+                    'to',
+                    'per_page',
+                    'current_page',
+                    'last_page'
                 ]
             ]);
     }
