@@ -26,5 +26,13 @@ COPY .env.example .env
 RUN a2enmod rewrite
 # copy apache config
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
+# Prepare fake SSL certificate
+RUN apt-get install -y ssl-cert
+
+# Setup Apache2 mod_ssl
+RUN a2enmod ssl
+
+# Setup Apache2 HTTPS env
+RUN a2ensite default-ssl.conf
 # expose port 80
 EXPOSE 80
