@@ -25,7 +25,7 @@ COPY .env.example .env
 # copy apache config
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 # Prepare fake SSL certificate
-RUN apt-get install -y ssl-cert
+# RUN apt-get install -y ssl-cert
 #install openssl
 RUN apt-get install -y openssl
 # generate self-signed certificate
@@ -33,14 +33,12 @@ RUN apt-get install -y openssl
 RUN mkdir /etc/apache2/certificate
 #change directory to /etc/apache2/certificate
 WORKDIR /etc/apache2/certificate
-RUN openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out apache-certificate.crt -keyout apache.key
-# RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com"
+# RUN openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out apache-certificate.crt -keyout apache.key
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/certificate/apache.key -out /etc/apache2/certificate/apache.crt -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com"
 # enable ssl
 # enable mod_rewrite
 RUN a2enmod rewrite
 RUN a2enmod ssl
-# enable headers
-RUN a2enmod headers
 # restart apache
 RUN service apache2 restart
 # expose port 80
