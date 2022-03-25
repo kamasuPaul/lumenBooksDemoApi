@@ -45,3 +45,6 @@ RUN a2enmod headers
 RUN service apache2 restart
 # expose port 80
 EXPOSE 80
+# expose port 443
+EXPOSE 443
+
